@@ -44,6 +44,8 @@ with sync_playwright() as p:
         match_id = match_info["match_id"]
         if match_id <= "M111":
             continue
+        if match_id >= "M211":
+            break
         if not match_url.startswith("https://"):
             continue
         bga_match_id = re.findall(r"table=(\d+)", match_url)[0]
